@@ -3,7 +3,7 @@
 	desc = "Used to view and edit personnel's security records."
 	icon_screen = "security"
 	icon_keyboard = "security_key"
-	req_one_access = list(ACCESS_SECURITY, ACCESS_FORENSICS, ACCESS_HOP)
+	req_one_access = list(ACCESS_SECURITY, ACCESS_FORENSICS, ACCESS_DELEGATE)
 	circuit = /obj/item/circuitboard/computer/secure_data
 	light_color = COLOR_SOFT_RED
 	var/rank = null
@@ -712,7 +712,7 @@ Age: [active1.fields[DATACORE_AGE]]<BR>"}
 				G.fields[DATACORE_NAME] = "New Record"
 				G.fields[DATACORE_ID] = "[num2hex(rand(1, 1.6777215E7), 6)]"
 				G.fields[DATACORE_RANK] = "Unassigned"
-				G.fields[DATACORE_TRIM] = "Unassigned"
+				G.fields[DATACORE_TEMPLATE_RANK] = "Unassigned"
 				G.fields[DATACORE_INITIAL_RANK] = "Unassigned"
 				G.fields[DATACORE_GENDER] = "Male"
 				G.fields[DATACORE_AGE] = "Unknown"
@@ -1030,7 +1030,7 @@ Age: [active1.fields[DATACORE_AGE]]<BR>"}
 								var/rank = SSid_access.station_job_templates[path]
 								if(rank)
 									active1.fields[DATACORE_RANK] = rank
-									active1.fields[DATACORE_TRIM] = active1.fields[DATACORE_RANK]
+									active1.fields[DATACORE_TEMPLATE_RANK] = active1.fields[DATACORE_RANK]
 									investigate_log("[key_name(usr)] updated [active1.fields[DATACORE_NAME]]'s record: Var: rank | Old value:[active1.fields[DATACORE_RANK]] | New value: [rank].", INVESTIGATE_RECORDS)
 								else
 									message_admins("Warning: possible href exploit by [key_name(usr)] - attempted to set change a crew member rank to an invalid path: [path]")
