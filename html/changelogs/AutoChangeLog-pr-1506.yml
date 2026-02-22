@@ -1,6 +1,0 @@
-author: Kapu1178
-delete-after: true
-changes:
-  - bugfix: The shuttle doors on the Atlas properly close during takeoff.
-  - bugfix: The Atlas has a cargo shuttle. Oops.
-  - bugfix: Fixed various machines not transmitting to common on the Atlas.

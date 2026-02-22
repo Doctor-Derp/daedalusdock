@@ -11,3 +11,8 @@
   - bugfix: fixed gas meters displaying below layer manifolds (Ported PR by Ghilker)
   - refactor: Audited atmos coloring code - atmos pipes no longer color weirdly (Ported
       PR by SmArtKar)
+2026-02-22:
+  Kapu1178:
+  - bugfix: The shuttle doors on the Atlas properly close during takeoff.
+  - bugfix: The Atlas has a cargo shuttle. Oops.
+  - bugfix: Fixed various machines not transmitting to common on the Atlas.
