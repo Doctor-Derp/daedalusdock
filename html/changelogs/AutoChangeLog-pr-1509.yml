@@ -1,0 +1,8 @@
+author: Kapu1178
+delete-after: true
+changes:
+  - bugfix: Fixed AI being unable to properly use their radio like at all. (FOR REAL
+      THIS TIME)
+  - rscadd: Added armor ratings to magboots. (I forget whose idea this was)
+  - rscadd: Stairs now allow you to climb onto tables or low walls, notably the Theatre
+      of the Atlas.
