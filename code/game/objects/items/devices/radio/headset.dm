@@ -283,6 +283,7 @@ TYPEINFO_DEF(/obj/item/radio/headset)
 /obj/item/radio/headset/silicon/ai/Initialize(mapload)
 	keyslot2 = new /obj/item/encryptionkey/ai(src)
 	. = ..()
+	can_broadcast_on_common = TRUE
 
 /obj/item/radio/headset/screwdriver_act(mob/living/user, obj/item/tool)
 	user.set_machine(src)
@@ -339,7 +340,7 @@ TYPEINFO_DEF(/obj/item/radio/headset)
 
 /obj/item/radio/headset/get_channels()
 	. = ..()
-	for(var/channel_name in keyslot?.channels)
+	for(var/channel_name in keyslot2?.channels)
 		.[channel_name] = CHANNEL_STATUS_LISTENING
 
 /obj/item/radio/headset/AltClick(mob/living/user)
