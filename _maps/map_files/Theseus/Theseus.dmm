@@ -1758,12 +1758,10 @@
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/greater)
 "aDW" = (
-/obj/machinery/computer/security/mining{
-	dir = 1
-	},
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 1
 	},
+/obj/structure/table,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "aDY" = (
@@ -20706,14 +20704,12 @@
 /turf/open/floor/plating,
 /area/station/commons/locker)
 "htC" = (
-/obj/machinery/computer/shuttle/mining{
-	dir = 1;
-	req_access = null
-	},
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
+/obj/structure/table,
+/obj/machinery/cell_charger,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "htH" = (
