@@ -46,7 +46,6 @@ TYPEINFO_DEF(/obj/item/clothing/head/helmet/space/eva)
 	icon_state = "spacebowl00"
 	inhand_icon_state = "s_helmet"
 	desc = "A lightweight space helmet with the basic ability to protect the wearer from the vacuum of space during emergencies."
-
 	flash_protect = FLASH_PROTECTION_WELDER
 	tint = 2
 	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT
@@ -58,23 +57,27 @@ TYPEINFO_DEF(/obj/item/clothing/head/helmet/space/eva)
 	light_on = FALSE
 	actions_types = list(/datum/action/item_action/toggle_helmet_light, /datum/action/item_action/toggle_welding_screen)
 
-	var/basestate = "spacebowl"
+	base_icon_state = "spacebowl"
 	var/lamp_state = FALSE //Whether the headlamp is on or off.
+
+/obj/item/clothing/head/helmet/space/eva/Initialize(mapload)
+	. = ..()
+	visor_toggling()
 
 /obj/item/clothing/head/helmet/space/eva/update_icon_state()
 	. = ..()
-	icon_state = "[basestate][lamp_state][up]" //Updates icon based on the current conditions, such as if the light is on or if the visor is down.
+	icon_state = "[base_icon_state][lamp_state][up]" //Updates icon based on the current conditions, such as if the light is on or if the visor is down.
 
-/obj/item/clothing/head/helmet/space/eva/attack_self(mob/user)
-	lamp_state = !lamp_state
-	update_icon(UPDATE_ICON_STATE)
-
-	set_light_on(lamp_state)
-
-	update_action_buttons()
+/obj/item/clothing/head/helmet/space/eva/ui_action_click(mob/user, actiontype)
+	if(istype(actiontype, /datum/action/item_action/toggle_helmet_light))
+		lamp_state = !lamp_state
+		update_appearance(UPDATE_ICON_STATE)
+		set_light_on(lamp_state)
+		update_action_buttons()
+	return ..()
 
 /obj/item/clothing/head/helmet/space/eva/AltClick(mob/user)
-	if(user.canUseTopic(src, USE_CLOSE))
+	if(equipped_to == user && user.canUseTopic(src, USE_CLOSE))
 		toggle_welding_screen(user)
 
 /obj/item/clothing/head/helmet/space/eva/ui_action_click(mob/user, actiontype)
